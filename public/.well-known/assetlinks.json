@@ -1,0 +1,19 @@
+[
+	{
+		"relation": ["delegate_permission/common.handle_all_urls"],
+		"target": {
+			"namespace": "android_app",
+			"package_name": "io.urwaiter.platform",
+			"sha256_cert_fingerprints": [
+				"50:9D:F3:0E:EC:11:6D:42:C6:89:51:D8:4A:84:2C:50:82:79:C6:E7:59:2B:03:A2:42:76:6C:AC:58:C3:4B:BB"
+			]
+		},
+		"conditions": [
+			{
+				"host": "app.urwaiter.io",
+				"pathPattern": "^/(?!api|menu|verify|reset-password).*"
+			}
+		]
+	}
+]
+  

@@ -1,0 +1,149 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(264, 30%, 2%);
+  --foreground: hsl(0, 0%, 98%);
+  --muted: hsl(264, 15%, 10%);
+  --accent: hsl(269.8, 70%, 55%);
+  --accent-light: hsl(269.8, 75%, 65%);
+  --accent-dark: hsl(269.8, 65%, 40%);
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+.glass-card {
+  @apply backdrop-blur-xl bg-opacity-10 bg-[hsl(269.8,70%,55%)] border border-opacity-25 border-[hsl(269.8,70%,55%)]
+         shadow-[0_8px_32px_0_rgba(120,60,240,0.15)] rounded-2xl;
+}
+
+.gradient-text {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-[hsl(269.8,75%,65%)] to-[hsl(269.8,70%,50%)];
+}
+
+.feature-card {
+  @apply p-8 hover:bg-opacity-20 hover:bg-[hsl(269.8,70%,55%)] transition-all duration-500 
+         hover:shadow-[0_8px_40px_0_rgba(120,60,240,0.3)] rounded-2xl backdrop-blur-xl 
+         bg-opacity-5 bg-[hsl(269.8,70%,55%)] border border-opacity-20 border-[hsl(269.8,70%,55%)]
+         transform;
+}
+
+.button-primary {
+  @apply px-8 py-4 rounded-xl bg-gradient-to-br from-[hsl(269.8,70%,55%)] via-[hsl(269.8,65%,45%)] to-[hsl(269.8,60%,35%)] 
+         text-white font-semibold shadow-lg hover:shadow-[hsl(269.8,70%,55%)]/70 transform hover:scale-105
+         transition-all duration-300 hover:from-[hsl(269.8,75%,60%)] hover:via-[hsl(269.8,70%,50%)] hover:to-[hsl(269.8,65%,40%)]
+         inline-flex items-center justify-center;
+}
+
+.button-secondary {
+  @apply px-8 py-4 rounded-xl backdrop-blur-xl bg-opacity-10 bg-[hsl(269.8,70%,55%)] text-white font-semibold 
+         border border-opacity-25 border-[hsl(269.8,70%,55%)] hover:bg-opacity-20 
+         transition-all duration-300 transform hover:scale-105 hover:border-opacity-20
+         inline-flex items-center justify-center;
+}
+
+.nav-link-minimal {
+  @apply text-gray-400 hover:text-white transition-colors text-sm font-medium;
+}
+
+.hero-badge {
+  @apply px-4 py-2 rounded-full bg-[hsl(269.8,70%,55%)]/10 text-[hsl(269.8,75%,65%)] 
+         border border-[hsl(269.8,70%,55%)]/25 text-sm font-medium
+         hover:scale-105 transform transition-all duration-300
+         hover:bg-[hsl(269.8,70%,55%)]/20 inline-flex items-center;
+}
+
+.stats-highlight {
+  @apply text-3xl font-bold gradient-text mb-2;
+}
+
+.feature-list {
+  @apply space-y-3 mt-6;
+}
+
+.feature-item {
+  @apply flex items-start gap-3 text-gray-300;
+}
+
+.feature-icon {
+  @apply w-5 h-5 text-[hsl(269.8,70%,55%)] mt-0.5 flex-shrink-0;
+}
+
+.section-subtitle {
+  @apply text-lg text-gray-400 max-w-2xl mx-auto;
+}
+
+.stat-box {
+  @apply p-8 rounded-xl bg-[hsl(269.8,70%,55%)]/5 border border-[hsl(269.8,70%,55%)]/10
+         hover:scale-105 transform transition-all duration-300
+         hover:bg-[hsl(269.8,70%,55%)]/10 text-center;
+}
+
+.testimonial-card {
+  display: flex;
+  flex-direction: column;
+  @apply p-8 rounded-xl bg-[hsl(269.8,70%,55%)]/5 border border-[hsl(269.8,70%,55%)]/10
+         hover:scale-105 transform transition-all duration-300
+         hover:bg-[hsl(269.8,70%,55%)]/10;
+}
+
+.app-store-button {
+  @apply flex items-center gap-4 rounded-xl
+         transition-all duration-300 transform hover:scale-105;
+}
+
+.footer-gradient {
+  background: linear-gradient(to bottom, transparent, rgba(120,60,240,0.07));
+}
+
+.icon-gradient {
+  @apply text-[hsl(269.8,70%,55%)] group-hover:text-[hsl(269.8,75%,65%)] transition-colors duration-300;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Enhanced Contrasted Glow Background with Darker Tones */
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 15% 20%, hsla(269.8,75%,60%,0.25), transparent 30%),
+    radial-gradient(circle at 85% 80%, hsla(269.8,70%,50%,0.3), transparent 35%),
+    radial-gradient(circle at 50% 50%, hsla(269.8,65%,45%,0.35), transparent 40%);
+  background-size: 200% 200%;
+  animation: enhancedGradientMovement 15s ease infinite alternate;
+  z-index: -1;
+}
+
+@keyframes enhancedGradientMovement {
+  0% {
+    background-position: 0% 50%;
+    opacity: 0.8;
+  }
+  50% {
+    background-position: 100% 50%;
+    opacity: 1;
+  }
+  100% {
+    background-position: 0% 50%;
+    opacity: 0.8;
+  }
+}

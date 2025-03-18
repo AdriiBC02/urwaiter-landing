@@ -1,0 +1,38 @@
+{
+	"applinks": {
+	  "details": [
+      {
+        "appIDs": [
+          "58Q4222952.io.urwaiter.platform"
+        ],
+        "components": [
+          {
+            "/": "*"
+          },
+          {
+            "/": "/api/*",
+            "exclude": true
+          },
+          {
+            "/": "/verify/*",
+            "exclude": true
+          },
+          {
+            "/": "/reset-password/*",
+            "exclude": true
+          }
+        ]
+      }
+	  ]
+	},
+	"activitycontinuation": {
+	  "apps": [
+      "58Q4222952.io.urwaiter.platform"
+    ]
+	},
+	"webcredentials": {
+	  "apps": [
+      "58Q4222952.io.urwaiter.platform"
+    ]
+	}
+}

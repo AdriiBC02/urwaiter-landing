@@ -1,0 +1,1672 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap');
+
+/* Variables base para ShadCN/Tailwind */
+:root {
+	--background: 268.24 58.62% 5.69%;
+	--foreground: 270 55% 92.16%;
+	--primary: 269.8 60% 48.04%;
+	--primary-foreground: 272 55.56% 94.71%;
+	--card: 264 17.24% 5.69%;
+	--card-foreground: 270 55% 92.16%;
+	--popover: 0 0% 0%;
+	--popover-foreground: 270 55% 92.16%;
+	--secondary: 270 60.47% 16.86%;
+	--secondary-foreground: 0 0% 100%;
+	--muted: 0 0% 9.8%;
+	--muted-foreground: 0 0% 50.2%;
+	--accent: 270 60.47% 16.86%;
+	--accent-foreground: 270 55% 92.16%;
+	--destructive: 0 84.2% 60.2%;
+	--destructive-foreground: 210 40% 98%;
+	--border: 268.97 59.18% 9.61%;
+	--input: 268 14.85% 19.8%;
+	--ring: 269.8 60% 48.04%;
+	--radius: 0.5rem;
+}
+
+html {
+	/* Usamos el color de fondo base */
+	width: 100%;
+	background-color: transparent;
+	color: hsl(var(--foreground));
+	font-family: ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+}
+
+button,
+input {
+	font-family: ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+}
+
+/*-------------------------------------------------
+  Layout Container (Mobile-First)
+-------------------------------------------------*/
+/* On mobile, the container width is set to 90% and centered.
+   On larger screens, a max-width is applied. */
+#hpp {
+	background-color: transparent;
+	width: 90%;
+	margin: 0 auto;
+	padding: 1rem;
+	box-sizing: border-box;
+	/* Responsive layout improvements for the main form */
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	gap: 1rem;
+}
+
+/* For larger screens, cap the width at 600px */
+@media screen and (min-width: 768px) {
+	#hpp {
+		max-width: 600px;
+		width: 100%;
+		padding: 2rem;
+	}
+}
+
+.paymentHeaderTitle {
+	display: none !important;
+}
+
+.paymentHeader .paymentHeaderTitle,
+.summaryLine {
+	font-family: ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+	font-style: normal;
+	font-weight: 600;
+	font-size: 18px;
+	line-height: 20px;
+	color: white;
+}
+
+.summaryLine {
+	margin: 0;
+}
+
+.paymentSummary .paymentAmount {
+	margin: 0;
+}
+
+.header,
+.paymentHeader {
+	width: 100%;
+	height: auto;
+	box-sizing: border-box;
+	padding: 20px 40px;
+	background-color: hsl(var(--card));
+	border-radius: var(--radius);
+	height: 71px;
+}
+
+.paymentHeader:hover {
+	background-color: #BABABA;
+}
+
+.header {
+	margin-bottom: 20px;
+	margin-top: 20px;
+	height: auto;
+	border: 1px solid hsl(var(--border));
+}
+
+#paymentSelection {
+	border: 1px solid hsl(var(--border));
+	border-radius: var(--radius);
+	background-color: hsl(var(--card));
+}
+
+.paymentHeader {
+	border: none;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.paymentHeader.active {
+	background-color: hsl(var(--card));
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+}
+
+.paymentHeader .iconHolder {
+	display: none;
+}
+
+.paymentHeader .paymentHeaderTitle {
+	margin-right: auto;
+}
+
+.paymentHeader.active .paymentHeaderTitle {
+	font-weight: 600;
+}
+
+.paymentHeader .marker {
+	display: none;
+}
+
+#giftCardPayments .arrow {
+	background-position: -1% 0;
+}
+
+.paymentBody {
+	background-color: hsl(var(--card));
+	border-bottom-left-radius: var(--radius);
+	border-bottom-right-radius: var(--radius);
+}
+
+.cardBody,
+.achBody,
+#giftBody,
+.indvebanking,
+.ewalletBody,
+.invoiceBody,
+.codBody,
+.bankTransferBody,
+.walkInBody,
+.ebankingBody,
+.klarnaBody,
+.collinvBody,
+.collacctBody,
+.collinvbBody,
+.collacctbBody,
+.collcampBody,
+.collpartBody,
+.fdkBody,
+.storeCreditsBody,
+.loyaltyPointsBody,
+.giftcard2Body,
+.voucherInputContainer,
+.expressButtonContainer {
+	padding: 0px 0px;
+}
+
+.cardBody .creditCardIcons {
+	display: none;
+}
+
+.creditCardIcons {
+	display: block;
+	margin-bottom: 0;
+}
+
+.creditCardIcons ul {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.cardLogos li {
+	display: flex;
+	align-items: center;
+}
+
+.paymentHeader .paymentLogoMP {
+	display: flex;
+	width: 58px;
+	justify-content: center;
+}
+
+.paymentHeader[data-paymentmethod="CREDITCARD"] .paymentLogoMP {
+	width: auto;
+}
+
+.paymentLogoMP a {
+	display: flex;
+}
+
+.paymentLogoMP .ebankingLogo {
+	margin-bottom: 0px;
+}
+
+img.cardLogo {
+	height: 30px;
+	margin: 0;
+}
+
+.cardLogos li .cardLogo {
+	margin-right: 13px;
+}
+
+.paymentLogoMP img {
+	height: 31px;
+}
+
+.holder {
+	/* Modified for responsiveness: full width with a max width */
+	box-sizing: border-box;
+	width: 100%;
+	max-width: 350px;
+}
+
+.holder:first-child {
+	margin-top: 0;
+}
+
+.inputContainer.active {
+	border: none;
+}
+
+.inputContainer .labelContainer {
+	color: #BABABA;
+	margin-top: 11px;
+	margin-left: 10px;
+}
+
+.inputContainer {
+	padding-left: 20px;
+	padding-right: 20px;
+	margin-bottom: 22px;
+	border: none;
+	width: 100%;
+	background-color: #ffffff;
+	border-radius: var(--radius);
+	font-size: 14px;
+	font-family: ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+	font-weight: 400;
+	height: 39px;
+}
+
+.inputContainer.error {
+	border: none;
+	transition: none;
+	box-shadow: 0 0 0 2px hsl(var(--destructive));
+}
+
+.inputContainer.filled.animated .labelContainer {
+	opacity: 0;
+	transition: none;
+	-webkit-transition: none;
+	-moz-transition: none;
+}
+
+.inputContainer input {
+	padding-top: 8px;
+	/* Ensure the input fills the container */
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.inputContainer.filled input {
+	padding-top: 8px;
+	transition: none;
+	-webkit-transition: none;
+	-moz-transition: none;
+}
+
+.inputContainer label.placeHolderLabel {
+	top: 12px;
+	font-size: 10px !important;
+}
+
+.checkboxContainer {
+	font-size: 16px;
+	font-family: ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+	font-weight: 400;
+}
+
+.cardBody .checkboxContainer.atm,
+.checkboxContainer {
+	margin-bottom: 0px;
+}
+
+.checkboxContainer .labelContainer {
+	color: hsl(var(--card));
+}
+
+.checkboxContainer .icheckbox_square-blue.checked+.labelContainer {
+	color: hsl(var(--primary));
+	font-weight: 600;
+}
+
+.inputContainer+.errorMsg,
+.checkboxContainer+.errorMsg {
+	position: initial;
+	color: hsl(var(--destructive));
+	background-color: inherit;
+	text-align: center;
+	-ms-transform: none;
+	-webkit-transform: none;
+	transform: none;
+	width: auto;
+}
+
+.inputContainer.error+.errorMsg,
+.inputContainer.error+.errorMsg,
+.checkboxContainer.error+.errorMsg,
+.checkboxContainer.error+.errorMsg {
+	display: block;
+	font-size: 10px;
+	font-family: ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+	font-weight: 400;
+	margin-top: -30px;
+}
+
+.inputContainer+.errorMsg::after,
+.checkboxContainer+.errorMsg::after {
+	display: none;
+}
+
+.icheckbox_square-blue {
+	box-sizing: border-box;
+	width: 30px;
+	height: 30px;
+	border-radius: 4px;
+	border: none;
+}
+
+.summaryLine .amountHolder {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.summaryLine .amountLine {
+	display: flex;
+	justify-content: space-between;
+}
+
+.instrumentAmount {
+	display: none !important;
+	justify-content: space-between;
+}
+
+.summaryLine.instrumentAmount .installments {
+	width: auto;
+}
+
+.divider {
+	display: none !important;
+}
+
+.summaryLine.instrumentAmount .label {
+	width: auto;
+	text-align: right;
+}
+
+.icheckbox_square-blue.checked {
+	background-image: url('images/checkmark.svg');
+	background-size: contain;
+}
+
+.expirationDateCvcholder,
+.editProfileContainerBody .expirationDateCvcholder {
+	/* Modified to be responsive */
+	width: 100%;
+	max-width: 350px;
+	display: flex;
+}
+
+.expirationDateHolder {
+	margin-bottom: 0;
+	width: 50%;
+}
+
+.holder.cardCvCHolder {
+	/* On mobile, use full width; see media query below for larger screens */
+	width: 100%;
+	margin-bottom: 0;
+}
+
+.holder .cvcInput {
+	display: inherit;
+}
+
+.useAsHolder {
+	margin: 0;
+}
+
+.commandButton,
+.commandButtonInternal,
+.buttonContainer .accept.button {
+	font-family: ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+	height: auto;
+	border: none;
+	padding: 10px 20px;
+	background: hsl(var(--primary));
+	border-radius: var(--radius);
+	text-align: center;
+	color: #FFFFFF;
+	font-weight: 600;
+	line-height: 100%;
+	font-size: 16px;
+}
+
+.commandButton:hover,
+.commandButton:focus,
+.commandButtonInternal:hover,
+.commandButtonInternal:focus,
+.buttonContainer .accept.button:active {
+	background: hsl(var(--accent));
+}
+
+.giftCardInputContainer {
+	width: 100%;
+}
+
+.paymentBody[data-paymentmethod="EWALLET_APPLEPAY"] .accordionButtonWideMP,
+.paymentBody[data-paymentmethod="EWALLET_PAYPAL"] .accordionButtonWideMP,
+.paymentBody[data-paymentmethod="EWALLET_SATISPAY"] .accordionButtonWideMP {
+	display: none;
+}
+
+#apple-pay-button-container {
+	display: flex;
+	justify-content: center;
+	padding: 0px 20px 20px 20px;
+}
+
+@supports (-webkit-appearance:-apple-pay-button) {
+	.apple-pay-button-with-text {
+		border-radius: 18px;
+		border: none;
+		padding-bottom: 5px;
+		padding-top: 5px;
+		padding-left: 0px !important;
+		padding-right: 0px !important;
+		width: 344px !important;
+	}
+}
+
+/* gift card form start */
+
+.savedGiftCardTable,
+.spaceHolder {
+	background-color: #EDEDED;
+	border: none;
+	color: #EDEDED;
+}
+
+.savedGiftCardTable th.savedCardNumber {
+	font-family: 'Source Sans Pro';
+	font-weight: 600;
+	font-size: 16px;
+	display: table-cell;
+}
+
+.savedGiftCardTable th.savedCardApplied {
+	color: #BABABA;
+	font-family: 'Roboto';
+	font-weight: 500;
+	font-size: 12px;
+	line-height: 14px;
+	text-align: center;
+}
+
+.savedGiftCardTable td.savedCardApplied {
+	text-align: center;
+}
+
+.savedGiftCardTable td {
+	border-top: none;
+}
+
+.applySavedGiftLink {
+	color: #00A2A7;
+}
+
+.giftCardRemoveLink {
+	color: #242D3A;
+}
+
+.savedGiftCardTable {
+	padding: 1.416em 0.714em 1.416em 0.714em;
+}
+
+.savedGiftCardTable tr:has(.savedCardRemove.pinned) {
+	background: rgba(0, 162, 167, 0.1);
+	width: 528px;
+	height: 38px;
+	border-radius: 10px;
+}
+
+.savedGiftCardTable td.savedCardNumber {
+	border-top-left-radius: 10px;
+	border-bottom-left-radius: 10px;
+	padding-left: 5px;
+}
+
+.savedGiftCardTable td.savedCardRemove {
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+
+.giftCardButtonContainer .commandButton.right {
+	min-width: 160px;
+}
+
+/* gift card form end*/
+
+.commandButton .left .commandButtonInternal .left {
+	border: 1px solid #58647D;
+}
+
+#applyGiftButton span {
+	color: #ffffff;
+}
+
+.giftCardButtonContainer span {
+	margin: 0;
+	font-family: ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+	font-style: normal;
+	font-size: 18px;
+	font-weight: 400;
+}
+
+.giftCardButtonContainer {
+	display: flex;
+	justify-content: space-evenly;
+}
+
+#applyGiftButton.disabled,
+#accordionButtonMPEWALLET_BANCOPAY.disabled,
+#accordionButtonMPEWALLET_IDEAL.disabled,
+#accordionButtonMPEWALLET_MYBANK.disabled,
+#accordionButtonMPEWALLET_ALIPAY.disabled,
+.continueButton.disabled,
+.continueButtonInternal.disabled,
+#submitNewEmailClick2payButton.disabled {
+	background-color: #99C3C6;
+	pointer-events: none;
+}
+
+#checkGiftBalance.disabled {
+	pointer-events: none;
+}
+
+.paymentBodyWrapper .achBody .heading3 {
+	margin-top: 0;
+}
+
+.walletItem:not(.no-hover):hover,
+.walletItem.active {
+	border: none;
+	background: rgba(0, 162, 167, 0.1);
+	border-radius: 10px;
+}
+
+.paymentBodyWrapper {
+	padding-left: 40px;
+	padding-right: 40px;
+	padding-top: 10px;
+}
+
+.walletItem {
+	margin-left: 0;
+	margin-right: 0;
+}
+
+.walletItem .paymentBodyWrapper {
+	padding-left: 0;
+	padding-right: 0;
+}
+
+.radio {
+	width: 17px;
+	height: 17px;
+	border-radius: 50%;
+	border: 2px solid #BABABA;
+	background: none;
+}
+
+.walletItem {
+	border: none;
+	padding-right: 10px;
+	padding-left: 10px;
+	margin-top: 10px;
+}
+
+.profilePaymentHeader.active .radio,
+.billingRadio.icons.radio.active,
+.radioiteminlist.icons.radio.active,
+.click2payCard .icons.radio.active {
+	position: relative;
+	border: 2px solid hsl(var(--primary));
+}
+
+.profilePaymentHeader.active .radio::after,
+.billingRadio.icons.radio.active::after,
+.radioiteminlist.icons.radio.active::after,
+.click2payCard .icons.radio.active::after {
+	position: absolute;
+	content: '';
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 14px;
+	height: 14px;
+	border-radius: 50%;
+	background-color: hsl(var(--primary));
+}
+
+.profilePaymentHeader {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 40px;
+}
+
+.profilePaymentHeader .infoHolder {
+	margin-left: 10px;
+	margin-right: auto;
+	display: flex;
+	align-items: center;
+	padding-bottom: 0;
+	font-family: ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+	font-size: 16px;
+	line-height: 20px;
+}
+
+.profilePaymentHeader .infoHolder .cardLogo img {
+	height: 20px;
+}
+
+.profilePaymentHeader .details,
+.profilePaymentHeader .expDate {
+	font-weight: 600;
+}
+
+.profilePaymentBody .infoHolder {
+	padding-bottom: 10px;
+}
+
+.expDate.expired {
+	color: hsl(var(--destructive));
+}
+
+.innerErrorList {
+	color: hsl(var(--destructive));
+	display: inline-block;
+}
+
+.profileHeaderMarker {
+	line-height: 100%;
+}
+
+.walletItem .buttonHolder.edit {
+	margin: 0;
+}
+
+#form_CREDITCARD .holder.cardCvCHolder,
+#form_PASSFR .holder.cardCvCHolder {
+	margin-left: 10px;
+}
+
+.buttonHolder.processButtonsHolder {
+	padding: 30px 20px 20px 20px;
+	margin: 0;
+	margin-top: 0px;
+	display: flex;
+	justify-content: center;
+}
+
+.right .commandButton,
+.right .commandButtonInternal {
+	color: #ffffff;
+}
+
+.profilePaymentHeader .icons.edit {
+	background-image: url('images/edit.svg');
+	background-size: contain;
+	background-repeat: no-repeat;
+	width: 23px;
+	height: 23px;
+}
+
+.dialogBox {
+	background-color: rgba(255, 255, 255, 0.7);
+}
+
+#cvcInfoPopup .dialogBoxBody,
+.dialogBox .dialogBoxBody {
+	border: none;
+	background-color: hsl(var(--card));
+	box-shadow: -1px -1px 8px rgba(0, 0, 0, 0.12);
+	border-radius: var(--radius);
+}
+
+.dialogBoxHeader .close {
+	position: relative;
+	width: 18px;
+	height: 18px;
+}
+
+.dialogBoxHeader .close:before,
+.dialogBoxHeader .close:after {
+	position: absolute;
+	left: 8px;
+	content: ' ';
+	height: 18px;
+	width: 2px;
+	background-color: hsl(var(--muted-foreground));
+}
+
+.dialogBoxHeader .close:before {
+	transform: rotate(45deg);
+}
+
+.dialogBoxHeader .close:after {
+	transform: rotate(-45deg);
+}
+
+.editProfileContainerBody .dialogBoxHeader {
+	border-top-left-radius: var(--radius);
+	border-top-right-radius: var(--radius);
+}
+
+.dialogBoxBody {
+	font-family: ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+	font-style: normal;
+	font-size: 16px;
+	font-weight: 400;
+}
+
+.dialogText {
+	padding: 5px;
+}
+
+.dialogText .expirationDateCvcholder {
+	margin-bottom: 10px;
+}
+
+.dialogText .expirationDateHolder,
+.dialogText .cardCvCHolder {
+	width: 50%;
+}
+
+.dialogText .cardCvCHolder {
+	margin-left: 10px;
+}
+
+.dialogBox .commandButton,
+.confirmDeleteDialog .buttonContainer .accept,
+.confirmDeleteDialog .buttonContainer .button,
+.buttonContainer .cancel.button {
+	border: none;
+	padding: 10px 20px;
+	border-radius: var(--radius);
+	text-align: center;
+	font-size: 12px;
+	line-height: 100%;
+	font-weight: 400;
+	width: 70px;
+	height: 28px;
+	padding: 4px 15px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	box-sizing: border-box;
+}
+
+.confirmDeleteDialog .buttonContainer .button.accept,
+.dialogBox .saveButton {
+	color: hsl(var(--card));
+	border: 1px solid hsl(var(--card));
+}
+
+.confirmDeleteDialog .button.cancel,
+.buttonContainer .cancel.button:active {
+	color: #ffffff;
+	background-color: hsl(var(--card));
+}
+
+.dialogBox .saveButton:hover {
+	color: #BABABA;
+	border: 1px solid #BABABA;
+}
+
+.dialogBox .cancelButton,
+.dialogBox.cvcInfo .commandButton,
+.buttonContainer .cancel.button:hover {
+	background: hsl(var(--card));
+	color: #FFFFFF;
+}
+
+.confirmDeleteDialog .buttonContainer .button:hover,
+.messageToCustomer .buttonContainer .button:hover,
+.dialogBox .commandButton:hover,
+.buttonContainer .cancel.button:hover {
+	text-decoration: none;
+}
+
+.dialogBox .cancelButton:hover,
+.dialogBox.cvcInfo .commandButton:hover {
+	background: #373F51;
+	color: #FFFFFF;
+}
+
+.dialogBox .text {
+	color: hsl(var(--card));
+}
+
+.dialogBox.editProfileContainer .editProfileContainerBody {
+	width: 25.833em;
+}
+
+.dialogBox .buttonHolder,
+.dialogBox .buttonContainer {
+	display: flex;
+	justify-content: center;
+}
+
+.dialogBox.confirmDeleteDialog .buttonContainer {
+	height: auto;
+}
+
+.dialogBox.cvcInfo .dialogBoxFooter {
+	display: flex;
+	justify-content: center;
+}
+
+.holder.useAsHolder:after,
+.holder.bankAccountType:after {
+	right: 15px;
+}
+
+.inputContainer.fancySelect.valid:after,
+.inputContainer.fancySelect.error:after,
+.inputContainer.fancySelect.error:before {
+	right: 35px;
+}
+
+.inputContainer.valid:after {
+	right: 10px;
+}
+
+.cardCvCHolder .cvcInfoLink {
+	margin-left: 0;
+	right: -35px;
+	transform: translateY(10%);
+	font-size: 12px;
+}
+
+.accordionButtonWide {
+	display: none;
+}
+
+.accordionButtonWideMP {
+	display: flex;
+	justify-content: center;
+	padding: 20px;
+	align-items: center;
+	flex-direction: column;
+}
+
+.profilePaymentBody .accordionButtonWideMP {
+	padding: 20px;
+}
+
+div.continueButton.accordionContinueButtonMP,
+div.continueButtonInternal.accordionContinueButtonInternalMP,
+.commandButton.cancelButton.cancelButtonMP {
+	display: block;
+	width: 100%;
+}
+
+.commandButton.cancelButton.cancelButtonMP {
+	color: white;
+}
+
+.bottomButtonMP {
+	display: none;
+}
+
+.mobileclose.commandButton {
+	display: none;
+}
+
+/* remove logos from body */
+.paymentBody .ebankingLogo img,
+.paymentBody .eWalletLogo img {
+	display: none;
+}
+
+.buttonContainer .accept.button.commandButton {
+	font-size: 12px;
+	height: 28px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	box-sizing: border-box;
+	text-decoration: none;
+}
+
+.buttonContainer .accept.button.commandButton:hover,
+#applyGiftButton:hover {
+	background: hsl(var(--card));
+	color: #FFFFFF;
+}
+
+.buttonContainer .cancel.button {
+	border: 1px solid #58647D;
+}
+
+.paymentBody[data-paymentmethod="EWALLET_PAYBYBANK"] .paybybankButtonContainer .accordionButtonWide {
+	display: inline-block;
+}
+
+.paybybankButtonContainer {
+	width: 100%
+}
+
+.paybybankBankCheckboxContainer .icheckbox_square-blue {
+	width: 20px;
+	height: 20px;
+}
+
+.paybybankBankCheckboxContainer.checkboxContainer {
+	margin-bottom: 20px;
+}
+
+#paybybankBankSelectionContainer .inputContainer.filled input {
+	background-position: left 11px;
+}
+
+.paybybankBankSelectionTerms {
+	display: block;
+	padding-left: 20px;
+}
+
+.holder.billingPlanHolder,
+.holder.radiobuttonlistHolder {
+	border: none;
+	background-color: transparent;
+}
+
+.holder.billingPlanHolder tr {
+	margin: 2em;
+}
+
+.billingPlanHolder .table-row .col,
+.radiobuttonlistHolder .table-row .col {
+	border-top: none;
+	border-top-width: 0;
+	border-top: 0px rgba(0, 162, 167, 0.1);
+}
+
+.billingPlanHolder .table-row.active .col,
+.radiobuttonlistHolder .table-row.active .col {
+	color: hsl(var(--primary));
+	font-weight: bold;
+}
+
+.icons.info {
+	background-image: url(images/info.svg);
+	background-size: contain;
+	width: 23px;
+	height: 23px;
+	margin-top: 5px;
+}
+
+.icons.trash {
+	background-image: url(images/trash.svg);
+	background-size: contain;
+	width: 23px;
+	height: 23px;
+	margin-top: 5px;
+}
+
+.removeInstrumentHolder .tooltip {
+	z-index: 1100;
+}
+
+/*-------------------------------------*\
+			 PAYBYBANK BEGIN
+  \*-------------------------------------*/
+
+.paymentHeader .paymentHeaderSubTitle {
+	font-family: ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+	font-style: normal;
+	font-size: 16px;
+	color: hsl(var(--card));
+	flex-grow: 1;
+	height: 18px;
+}
+
+.inputContainer .selectList {
+	border: 2px solid hsl(var(--primary));
+	border-radius: var(--radius);
+	top: 40px;
+	overflow-y: hidden;
+}
+
+.inline-emphasis {
+	color: hsl(var(--primary));
+}
+
+.inline-link {
+	color: hsl(var(--primary));
+	font-weight: bold;
+}
+
+.paybybankGroupSelectionContainer::before {
+	border-left: 1px dashed hsl(var(--primary));
+}
+
+.paybybankGroup1Container::before {
+	background-color: hsl(var(--primary));
+}
+
+.paybybankGroup2Container::before {
+	background-color: hsl(var(--primary));
+}
+
+.paybybankGroup2Container.nofocus::before {
+	background-color: #99C3C6;
+}
+
+#accordionButtonPAYBYBANKinline {
+	width: 400px;
+	padding: 10px 20px;
+	text-align: center;
+}
+
+#accordionButtonPAYBYBANKinline.nofocus {
+	background-color: #99C3C6;
+}
+
+.paybybankIntroText {
+	font-family: ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+	font-style: normal;
+	font-weight: 400;
+	font-size: 11.3px;
+	line-height: 14px;
+	color: hsl(var(--card));
+}
+
+.checkboxContainer label.paybybankBankSelectionTermsText {
+	font-family: ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+	font-style: normal;
+	font-weight: 400;
+	font-size: 11.3px;
+	line-height: 88%;
+	color: hsl(var(--card));
+}
+
+.checkboxContainer label.paybybankBankSelectionTermsText a {
+	font-family: ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+	font-style: normal;
+	font-weight: 700;
+	font-size: 11.3px;
+	line-height: 10px;
+	color: hsl(var(--primary));
+	text-decoration: none;
+}
+
+.paybybankTrailerText,
+.bottomButtonTextContainer {
+	font-family: ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+	font-style: normal;
+	font-weight: 400;
+	font-size: 11.3px;
+	line-height: 14px;
+	color: hsl(var(--card));
+}
+
+.paymentBody[data-paymentmethod="EWALLET_PAYBYBANK"] .paybybankButtonContainer .accordionButtonWide {
+	display: inline-block;
+}
+
+.paybybankButtonContainer {
+	width: 100%
+}
+
+.paybybankBankCheckboxContainer .icheckbox_square-blue {
+	width: 20px;
+	height: 20px;
+}
+
+.paybybankBankCheckboxContainer.checkboxContainer {
+	margin-bottom: 20px;
+}
+
+#paybybankBankSelectionContainer .inputContainer.filled input {
+	background-position: left 11px;
+}
+
+.paybybankBankSelectionTerms {
+	display: block;
+	padding-left: 20px;
+}
+
+/*-------------------------------------*\
+			 PAYBYBANK END
+  \*-------------------------------------*/
+
+.bancomatPayContainer {
+	display: flex;
+	height: 50px;
+	justify-content: space-evenly;
+}
+
+.mobileNumberBancomatPay {
+	width: 100%;
+	margin-bottom: 24px;
+}
+
+.bancomatPayLogoContainer {
+	height: auto;
+	margin-bottom: 24px;
+}
+
+.iti input,
+.iti input[type=text],
+.iti input[type=tel] {
+	padding-bottom: 0px;
+	padding-top: 0px;
+}
+
+.iti__flag-container {
+	display: flex;
+	align-items: center;
+}
+
+.iti__selected-flag {
+	padding: 0 6px 0 0px;
+}
+
+.iti__selected-flag {
+	height: 55%;
+}
+
+.iti__flag {
+	width: 17px;
+	border-radius: 2px;
+}
+
+.iti--separate-dial-code.iti--show-flags .iti__selected-dial-code {
+	margin-left: 6px;
+	order: 1;
+	border-left: 2px solid #CAD4D9;
+	padding-left: 6px;
+}
+
+#paymentImage_instruction_Payconiq,
+.payconiqInstruction {
+	display: flex;
+	margin: 1.2em 0;
+	font-family: ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+	font-size: 18px;
+	font-weight: 600;
+}
+
+.paymentImage-instruction-Payconiq {
+	height: 10em;
+}
+
+.payconiqQrCodeInnerContainer {
+	align-content: unset;
+}
+
+.payconiqQrCodeContainer {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.payconiqQrCode img {
+	margin-left: 0;
+	width: 242px;
+}
+
+.payconiqQrCode {
+	padding: 8em 3em 2em 3em;
+}
+
+.payconiqQrCodeContainer,
+.wechatWaiting,
+.bancontactWaiting,
+.payconiqWaiting {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: auto;
+	width: auto;
+	margin-bottom: 2rem 0;
+}
+
+.wechatWaiting,
+.bancontactWaiting,
+.payconiqWaiting {
+	height: 4.5rem;
+}
+
+.payconiqTextContainer,
+.wechatTextContainer {
+	margin: 1em 0;
+	text-align: center;
+}
+
+.paymentError.error,
+.wechatPaymentError,
+.passCardoptionsUnavailableInProfile {
+	color: hsl(var(--destructive));
+	font-size: 16px;
+	display: flex;
+	border: none;
+	font-family: ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+	background-color: transparent;
+	width: 100%;
+}
+
+.paymentError span {
+	width: 100%;
+	text-align: start;
+	font-weight: 500;
+}
+
+.bancontactQrCodeContainer,
+.wechatQrCodeContainer {
+	align-items: center;
+	align-content: center;
+	align-items: center;
+}
+
+.ewalletMainTextContainer {
+	text-align: start;
+	margin-bottom: 2em;
+}
+
+.bottomButtonTextContainer {
+	text-align: center;
+	margin: 1em 0;
+}
+
+.btnGenerateBancontactQRCode,
+.btnGenerateWechatQRCode,
+.btnGeneratePayconiqQRCode {
+	display: flex;
+	justify-content: center;
+	background-color: hsl(var(--primary));
+	width: 344px;
+}
+
+.topBodyText,
+.bottomBodyText,
+.billingSecurityMsgNamePhoneEmail,
+.billingSecurityMsgPhoneEmail {
+	font-size: 16px;
+	font-family: ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+}
+
+.passCardBody .cardLogo {
+	display: none;
+}
+
+.radiobuttonlistHolder .firstcolumn {
+	margin-left: 0.6em;
+}
+
+.OTPcontainerClickToPay>* {
+	margin: 0.5rem 0;
+}
+
+.otp-input {
+	width: 66px;
+	height: 66px;
+	margin: 0.5em;
+	font-size: 1.5em;
+	text-align: center;
+	border: solid 2px #D3D3D3;
+	border-radius: 10px;
+}
+
+.otp-fake-input .otp-content {
+	color: hsl(var(--primary));
+}
+
+.otp-fake-input.otpdesigner__focus__ {
+	border: solid #99C3C6;
+}
+
+.otp-fake-input.otpdesigner__focus__.click2payError {
+	border: solid hsl(var(--destructive));
+}
+
+.otp-fake-input .otp-content.click2payError {
+	color: hsl(var(--primary));
+}
+
+.otp-input.error {
+	border: solid hsl(var(--destructive));
+}
+
+.separatorClick2Pay {
+	margin: 0rem 0 1rem 0;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.fake-inputs {
+	display: flex;
+	margin: 0.6rem 0;
+}
+
+#accordionButtonMPCLICKTOPAY,
+#accordionButtonCLICKTOPAY,
+#btn-clicktopay,
+#btnOTPHandler {
+	display: none;
+	width: 344px;
+}
+
+.expandCreditCardSectionButton {
+	width: 22rem;
+	margin: 0.5em 1em;
+}
+
+.expandCreditCardSectionButton.active {
+	cursor: pointer;
+}
+
+.clickableText {
+	cursor: pointer;
+	color: hsl(var(--primary));
+	text-decoration-color: hsl(var(--primary));
+	text-decoration: underline;
+	font-weight: 600;
+}
+
+.topClick2Pay {
+	display: flex;
+	justify-content: space-between;
+	margin: 0.5rem 0;
+}
+
+.switchIdContainerTop {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+}
+
+.submitInputContainer {
+	display: flex;
+	flex-direction: column;
+}
+
+.buttonContainer {
+	display: flex;
+	justify-content: center;
+}
+
+.buttonContainer>* {
+	margin: 0.5rem 0.5rem 2rem;
+}
+
+#otp_message_top {
+	margin: 0.5rem 0;
+	color: hsl(var(--card));
+}
+
+#resendContainerVisa,
+#otp_text_top {
+	color: #727272;
+	text-align: center;
+}
+
+.otpInput {
+	display: flex;
+	justify-content: center;
+}
+
+.click2payError {
+	color: hsl(var(--destructive));
+	margin: 0.5rem 0;
+	font-weight: 600;
+	margin: 1.6rem 0.5rem;
+	text-align: center;
+}
+
+.click2payCard {
+	display: flex;
+	justify-content: space-between;
+	margin: 0.5rem 0;
+	border-radius: 10px;
+	align-items: center;
+	padding: 0.2em 0.8em;
+	border: none;
+}
+
+.click2payCard.active {
+	background-color: rgba(0, 162, 167, 0.1);
+	border: none;
+}
+
+.click2payCardInfoHolder {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.click2payCardInfoHolder>* {
+	margin-right: 0.6rem;
+}
+
+.click2payText {
+	font-weight: 600;
+	line-height: normal;
+	font-family: ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+	font-size: 16px;
+}
+
+.otpFormTextWrapper {
+	display: flex;
+	justify-content: space-between;
+}
+
+.switchIdContainer {
+	margin-top: 2rem;
+}
+
+.click2payLoderHolder {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	margin-top: 3em;
+}
+
+#jumpingCardsImage {
+	height: 20em;
+	width: 20em;
+	align-self: center;
+}
+
+.resendContainerMC {
+	color: #727272;
+}
+
+.click2payResendSeparator {
+	color: #727272;
+	line-height: 20.11px;
+	margin: 0 0.5em;
+}
+
+.cancelSubmitNewEmailClick2payButton {
+	background-color: #D3D3D3;
+	width: 8em;
+}
+
+.cancelSubmitNewEmailClick2payButton:hover {
+	background-color: #D3D3D3;
+	opacity: 0.5;
+}
+
+.click2payIcons {
+	width: 40%;
+	display: flex;
+	justify-content: space-between;
+}
+
+.click2payIconsTop>* {
+	margin: 0 0.5em;
+	height: 2em;
+}
+
+.click2payCardLogo {
+	height: 1.1rem;
+}
+
+.click2payCard.disabled {
+	opacity: 0.5;
+	pointer-events: none;
+}
+
+.click2paySection {
+	padding: 0;
+}
+
+/*-------------------------------------*\
+			 FLOA BEGIN
+  \*-------------------------------------*/
+
+.floaText {
+	font-size: 16px;
+	font-family: ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+	font-weight: 400;
+}
+
+#floaInformationTopText {
+	padding-bottom: 10px;
+}
+
+.floaSimulatedInstallmentsLabel {
+	color: #ffffff;
+	font-family: ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+	font-size: 16px;
+	font-weight: 400;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.floaSimulatedInstallmentsPanel {
+	background: hsl(var(--card));
+	font-size: 16px;
+	font-family: ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+	font-weight: 400;
+}
+
+#rcorners1 {
+	border-radius: 25px;
+	background: #73AD21;
+	padding: 20px;
+	width: 200px;
+	height: 150px;
+}
+
+.floaVectorRadio,
+.floaVector {
+	display: grid;
+}
+
+.floaVector img {
+	justify-self: center;
+	margin-top: -0.16em;
+	margin-bottom: -0.16em;
+}
+
+.floaVectorRadio img {
+	justify-self: center;
+}
+
+.floaVector:last-of-type {
+	display: none;
+}
+
+.floaSimulatedInstallmentsTopTabs {
+	display: flex;
+	width: 100%;
+	border-radius: 30px;
+	background-color: hsl(var(--primary));
+	align-items: center;
+	height: 3.5em;
+}
+
+/*-------------------------------------*\
+			 FLOA END
+  \*-------------------------------------*/
+
+/*========================================
+   Responsive Input & Layout Overrides
+=========================================*/
+
+/* Ensure inputs fill their container */
+.inputContainer input {
+	width: 100%;
+	box-sizing: border-box;
+}
+
+/* For holders used for inputs (like card details), use full width with a max-width */
+.holder {
+	width: 100%;
+	max-width: 350px;
+}
+
+/* Make expiration date container responsive */
+.expirationDateCvcholder,
+.editProfileContainerBody .expirationDateCvcholder {
+	width: 100%;
+	max-width: 350px;
+}
+
+/* For card CVC holders: full width on mobile, half-width on larger screens */
+.holder.cardCvCHolder {
+	width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+	.holder.cardCvCHolder {
+		width: 50%;
+	}
+}
+
+/* New input container styling for a clean, Tailwind-esque look */
+.inputContainer {
+	width: 100%;
+	position: relative;
+	margin-bottom: 1rem;
+	/* adjust as needed */
+	background: transparent;
+	/* remove the white background */
+	padding: 0;
+	/* remove extra padding */
+}
+
+/* Updated input styling */
+.inputContainer input {
+	display: block;
+	width: 100%;
+	height: 2.5rem;
+	/* roughly equivalent to Tailwind's h-10 */
+	padding: 0.5rem 0.75rem;
+	/* similar to Tailwind's py-2 px-3 */
+	font-size: 0.875rem;
+	/* text-sm */
+	color: hsl(var(--foreground));
+	background-color: transparent;
+	border: 1px solid hsl(var(--muted));
+	border-radius: var(--radius);
+	transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.inputContainer.filled input {
+	color: #ffffff;
+}
+
+/* Placeholder styling */
+.inputContainer input::placeholder {
+	color: hsl(var(--muted-foreground));
+}
+
+/* Focus state with a subtle ring */
+.inputContainer input:focus {
+	outline: none;
+	border-color: hsl(var(--ring));
+	box-shadow: 0 0 0 2px hsla(var(--ring), 0.5);
+}
+
+/* Disabled state */
+.inputContainer input:disabled {
+	cursor: not-allowed;
+	opacity: 0.5;
+}
